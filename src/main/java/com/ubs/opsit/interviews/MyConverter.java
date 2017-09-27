@@ -1,9 +1,7 @@
 package com.ubs.opsit.interviews;
 
 public class MyConverter implements TimeConverter {
-	String second; 
-	String hour;
-	String minutes;
+	
 	
 	@Override
 	public String convertTime(String aTime) {
