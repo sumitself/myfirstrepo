@@ -8,6 +8,32 @@ public class MyConverterTest {
 	MyConverter converter = new MyConverter();
 	
 	@Test
+	public void test_isValidTime_ForCorrectValue(){
+		//Given
+		String input ="05:45:34";
+		
+		//When
+		boolean actualValid = converter.isValidTime(input);
+		
+		//then
+		assertThat(actualValid).isEqualTo(true);
+		
+	}
+	
+	@Test
+	public void test_isValidTime_ForInvalidValue(){
+		//Given
+		String input ="05:45:";
+		
+		//When
+		boolean actualValid = converter.isValidTime(input);
+		
+		//then
+		assertThat(actualValid).isEqualTo(false);
+		
+	}
+	
+	@Test
 	public void test_getRowString_ForHourRow_withOneLampIluminated(){
 		//Given
 		int maxLampCount = 4;

@@ -5,6 +5,10 @@ public class MyConverter implements TimeConverter {
 	
 	@Override
 	public String convertTime(String aTime) {
+		
+		if(!isValidTime(aTime)){
+			return "";
+		}
 		String[] values = aTime.split(":");
 		
 		int hour = Integer.parseInt(values[0]);
@@ -19,6 +23,9 @@ public class MyConverter implements TimeConverter {
 		return value.toString();
 	}
 	
+	protected boolean isValidTime(String timeText){
+		return timeText.matches("[0-2][0-9]:[0-6][0-9]:[0-6][0-9]");
+	}
 	
 	protected String getRowString(int rowValue,int maxValue, String colorCode){
 		StringBuilder topRowHourString = new StringBuilder();
